@@ -25,7 +25,6 @@ public class FoodsList extends AppCompatActivity {
         lv = findViewById(R.id.foodsList);
 
     }
-
     class DownloadData extends AsyncTask<String,Void,String> {
         String TAG = "HEYMAMBO";
 
@@ -37,9 +36,7 @@ public class FoodsList extends AppCompatActivity {
             FetchDataFromWebService fDFW = new FetchDataFromWebService();
             fDFW.parse(jsonData);
             ArrayList<Foods> foods = fDFW.getFoods();
-            for(Foods food: foods){
-                Log.d(TAG, "onPostExecute: "+ food.toString());
-            }
+
             FoodsAdapter fA = new FoodsAdapter(FoodsList.this,foods);
             lv.setAdapter(fA);
 
